@@ -2,12 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import Hero from "./hero";
 import Nav from "./nav";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Game from "./otherlink/game";
+import HomeContainer from "./otherlink/Github-desktop/homeContainer";
+import Homescreen from "./otherlink/dailyDev/homescreen";
+import Accordion from "./otherlink/accordion/accordion";
 const Home = () => {
   return (
     <Container>
-      <Nav />
-      <Hero />
+      <Router>
+        <Nav />
+        <Switch>
+          <Route path="/" exact component={Hero}></Route>
+          <Route path="/game" exact component={Game}></Route>
+          <Route path="/github-desktop" exact component={HomeContainer}></Route>
+          <Route path="/dailydev" exact component={Homescreen}></Route>
+          <Route path="/accordion" exact component={Accordion}></Route>
+        </Switch>
+      </Router>
     </Container>
   );
 };

@@ -1,21 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "./button";
-
+import { Link } from "react-router-dom";
+import { GoHome } from "react-icons/go";
+import { BiGame } from "react-icons/bi";
+import { VscGithubAlt } from "react-icons/vsc";
+import { FaDev } from "react-icons/fa";
+import { FaAssistiveListeningSystems } from "react-icons/fa";
 const Nav = () => {
   return (
     <Container>
       <Wrapper>
-        <Logo>SiteMile</Logo>
+        <Logo>Bright</Logo>
         <Links>
-          <MyLink>Home</MyLink>
-          <MyLink>Theme</MyLink>
-          <MyLink>Club</MyLink>
-          <MyLink>Custom</MyLink>
-          <MyLink>Affiliate</MyLink>
-          <MyLink>Blog</MyLink>
-          <MyLink>Contact</MyLink>
-          <MyLink>Account</MyLink>
+          <MyLink to="/">
+            <GoHome />
+          </MyLink>
+          <MyLink to="/game">
+            <BiGame />
+          </MyLink>
+          <MyLink to="/github-desktop">
+            <VscGithubAlt />
+          </MyLink>
+          <MyLink to="/dailydev">
+            <FaDev />
+          </MyLink>
+          <MyLink to="/accordion">
+            <FaAssistiveListeningSystems />
+          </MyLink>
           {/* <MyLink>
             <Button text="Buy Now" />
           </MyLink> */}
@@ -40,9 +51,20 @@ const Logo = styled.div`
   font-family: cursive;
   padding: 0 40px;
 `;
-const MyLink = styled.div`
-  margin: 0 10px;
+const MyLink = styled(Link)`
+  margin: 0 20px;
   text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  transition: all 350ms;
+  transform: scale(1);
+  cursor: pointer;
+
+  :hover {
+    transform: scale(1.05);
+    color: grey;
+  }
 `;
 const Container = styled.div`
   width: 100%;
